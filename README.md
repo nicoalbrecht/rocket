@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.3.
 
+## Setup
+
+Install [Node.js and NPM] (https://nodejs.org/dist/v8.9.2/node-v8.9.2-x64.msi) and add them to your PATH-variable. Then run `npm install` to install all dependencies.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
