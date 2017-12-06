@@ -1,0 +1,12 @@
+.create-query-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-query-container > *{
+  width: 100%;
+}
+
+#report-selector{
+  width: 100%;
+}

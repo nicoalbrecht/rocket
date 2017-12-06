@@ -1,0 +1,68 @@
+[
+  {
+    'id':0,
+    'name':'Test Abfrage 1',
+    'code':'',
+    'variables': [
+      {
+        'id':0,
+        'name':'Var0',
+        'type':0
+      },
+      {
+        'id':1,
+        'name':'Var1',
+        'type':1
+      },
+      {
+        'id':2,
+        'name':'Var2',
+        'type':0
+      }
+    ]
+  },
+  {
+    'id':1,
+    'name':'Test Abfrage 2',
+    'code':'',
+    'variables': [
+      {
+        'id':3,
+        'name':'Var3',
+        'type':0
+      },
+      {
+        'id':4,
+        'name':'Var4',
+        'type':1
+      },
+      {
+        'id':5,
+        'name':'Var5',
+        'type':0
+      }
+    ]
+  },
+  {
+    'id':2,
+    'name':'Test Abfrage 3',
+    'code':'',
+    'variables': [
+      {
+        'id':6,
+        'name':'Var6',
+        'type':0
+      },
+      {
+        'id':7,
+        'name':'Var7',
+        'type':1
+      },
+      {
+        'id':8,
+        'name':'Var8',
+        'type':0
+      }
+    ]
+  }
+]

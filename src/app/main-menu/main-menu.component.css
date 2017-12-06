@@ -1,0 +1,4 @@
+.menu-logo-spacer{
+  /*16px padding + 84px logo width*/
+  width: calc(100px);
+}
