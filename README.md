@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Setup
 
-Install Node.js and [NPM] (https://nodejs.org/dist/v8.9.2/node-v8.9.2-x64.msi) and add them to your PATH-variable. Then run `npm install` to install all dependencies.
+Install [Node.js and NPM](https://nodejs.org/dist/v8.9.2/node-v8.9.2-x64.msi) and add them to your PATH-variable. Then run `npm install` to install all dependencies.
 
 ## Development server
 
