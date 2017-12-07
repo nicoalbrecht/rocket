@@ -7,7 +7,7 @@ export class Variable {
 }
 
 export enum variableType {
-  STRING = 0,
-  NUMBER = 1,
-  DATE = 2
+  STRING = 'string',
+  NUMBER = 'number',
+  DATE = 'date'
 }

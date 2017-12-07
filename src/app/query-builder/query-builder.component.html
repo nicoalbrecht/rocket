@@ -1,39 +1,12 @@
-<mat-tab-group>
-  <mat-tab label="Report Laden">
-    <h1>Report und Ergebnis</h1>
+<h1>Neuen Report hinzufügen</h1>
+<div class="create-query-container">
+  <mat-form-field>
+    <input matInput placeholder="Name der Abfage" [(ngModel)]="this.reportNameInput" >
+  </mat-form-field>
 
-    <mat-form-field id="report-selector">
-      <mat-select placeholder="Report Auswählen" [(ngModel)]="this.selectedReport">
-        <mat-option *ngFor="let report of this.dummydata" [value]="report">
-          {{report.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Code der Abfrage" rows="25" [(ngModel)]="this.queryTfInput" ></textarea>
+  </mat-form-field>
 
-    <div *ngIf="this.selectedReport !== undefined">
-      <h2>Variablen</h2>
-      <div *ngFor="let variable of this.selectedReport.variables">
-        {{variable.name}}
-        {{variable.type}}
-      </div>
-    </div>
-    <br>
-    <div [innerHTML]="this.selectedReport?.code"></div>
-
-
-  </mat-tab>
-  <mat-tab label="Report Erstellen">
-    <h1>Neuen Report hinzufügen</h1>
-    <div class="create-query-container">
-      <mat-form-field>
-        <input matInput placeholder="Name der Abfage" [(ngModel)]="this.reportNameInput" >
-      </mat-form-field>
-
-      <mat-form-field>
-        <textarea matInput placeholder="Code der Abfrage" rows="25" [(ngModel)]="this.queryTfInput" ></textarea>
-      </mat-form-field>
-
-      <button mat-raised-button color="primary" (click)="saveButtonClick()">Speichern</button>
-    </div>
-  </mat-tab>
-</mat-tab-group>
+  <button mat-raised-button color="primary" (click)="saveButtonClick()">Speichern</button>
+</div>
