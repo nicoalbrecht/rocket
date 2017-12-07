@@ -1,0 +1,10 @@
+<div class="dynamic-input-container">
+  <mat-form-field *ngIf="!showDatepicker">
+    <input matInput placeholder="{{variable.name}}" type="{{variable?.type}}">
+  </mat-form-field>
+  <mat-form-field *ngIf="showDatepicker">
+    <input matInput placeholder="{{variable.name}}" [matDatepicker]="datepicker">
+    <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+    <mat-datepicker #datepicker></mat-datepicker>
+  </mat-form-field>
+</div>

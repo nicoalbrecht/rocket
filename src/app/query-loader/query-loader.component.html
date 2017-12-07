@@ -1,0 +1,26 @@
+<h1>Report und Ergebnis</h1>
+
+<mat-form-field id="report-selector">
+  <mat-select placeholder="Report Auswählen" [(ngModel)]="this.selectedReport">
+    <mat-option *ngFor="let report of this.dummydata" [value]="report">
+      {{report.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div *ngIf="this.selectedReport !== undefined">
+  <h2>Variablen</h2>
+  <div id="variables-container">
+    <app-dynamic-input *ngFor="let variable of this.selectedReport.variables"
+                       [variable]="variable"
+    >
+    </app-dynamic-input>
+  </div>
+</div>
+<br>
+<button mat-button (click)="showCode = !showCode" *ngIf="this.selectedReport !== undefined" color="accent">{{showCode ? 'Hide':'Show'}} Code</button>
+<div highlight-js-content=".report-code">
+  <pre *ngIf="showCode">
+    <code class="sql report-code rainbow" [innerHTML]="this.selectedReport?.code"></code>
+  </pre>
+</div>
