@@ -13,14 +13,14 @@
 
     <h2> Variablen des erstellten Reports </h2>
     <ul type="circle">
-      <li *ngFor="let variable of this.selectedReport.variables"> {{variables.name}} besitzt den Typen
+      <li *ngFor="let variable of this.inputData"> {{variable.name}} besitzt den Typen
          <mat-form-field>
-            <input matInput tabindex="1" [(ngModel)]="variableType">
+            <input matInput tabindex="1" [(ngModel)]="variable.type">
          </mat-form-field>
       </li>
     </ul>
 </div>
 <div mat-dialog-actions>
-  <button mat-button>Ok</button>
-  <button mat-button (click)="onNoClick()">Cancel</button>
+<button mat-button>Ok</button>
+<button mat-button (click)="onNoClick()">Cancel</button>
 </div>

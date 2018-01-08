@@ -4,7 +4,7 @@ import {Variable, variableType} from './../shared/variable';
 import {HttpClient} from '@angular/common/http';
 import {Report} from '../shared/report';
 import {DialogVariablesComponent} from "../dialog-variables/dialog-variables.component";
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-query-builder',
@@ -38,14 +38,16 @@ export class QueryBuilderComponent implements OnInit, AfterViewInit {
     const one_line_input = this.queryTfInput.replace(/(\r\n|\n|\r)/gm, ' ');
     this.readVariablesFromSQLText(one_line_input);
     const new_report = new Report(0, this.reportNameInput, one_line_input, this.found_vars);
-    this.ajax.post('url zur api', new_report).subscribe();
+    // this.ajax.post('url zur api', new_report).subscribe();
     this.openDialog();
       console.log(new_report);
 
   }
   openDialog() {
-        const dialogRef = this.dialog.open(DialogVariablesComponent);
-
+        const dialogRef = this.dialog.open(DialogVariablesComponent, {
+            width: "950px",
+            data: this.found_vars
+        });
         dialogRef.afterClosed().subscribe();
   }
 

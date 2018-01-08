@@ -77,8 +77,11 @@ import { DialogVariablesComponent } from './dialog-variables/dialog-variables.co
     ApolloModule,
     HttpLinkModule
   ],
+  entryComponents: [
+    DialogVariablesComponent
+  ],
   providers: [
-    HighlightJsService
+  HighlightJsService
   ],
   bootstrap: [AppComponent]
 })
