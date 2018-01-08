@@ -12,15 +12,14 @@
   <h2>Variablen</h2>
   <div id="variables-container">
     <app-dynamic-input *ngFor="let variable of this.selectedReport.variables"
-                       [variable]="variable"
-    >
+                       [variable]="variable" >
     </app-dynamic-input>
   </div>
 </div>
 <br>
-<button mat-button (click)="showCode = !showCode" *ngIf="this.selectedReport !== undefined" color="accent">{{showCode ? 'Hide':'Show'}} Code</button>
-<div highlight-js-content=".report-code">
-  <pre *ngIf="showCode">
-    <code class="sql report-code rainbow" [innerHTML]="this.selectedReport?.code"></code>
+<button mat-button (click)="showCode === 'true' ? showCode = 'false' : showCode = 'true'" *ngIf="this.selectedReport !== undefined" color="accent">{{showCode == 'true' ? 'Hide':'Show'}} Code</button>
+<div id="sql-wrapper" [@flyInOut2]="showCode" >
+  <pre>
+    <code [innerHTML]="this.selectedReport?.code"></code>
   </pre>
 </div>

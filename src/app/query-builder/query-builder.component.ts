@@ -1,8 +1,10 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 
 import {Variable, variableType} from './../shared/variable';
-import {HttpClient} from "@angular/common/http";
-import {Report} from "../shared/report";
+import {HttpClient} from '@angular/common/http';
+import {Report} from '../shared/report';
+import {DialogVariablesComponent} from "../dialog-variables/dialog-variables.component";
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
   selector: 'app-query-builder',
@@ -11,18 +13,18 @@ import {Report} from "../shared/report";
 })
 export class QueryBuilderComponent implements OnInit, AfterViewInit {
 
-  constructor(private ajax: HttpClient) { }
+  constructor(private ajax: HttpClient, public dialog: MatDialog) { }
 
   cursor = 0;
   memory_stack = [];
   found_vars: Array<Variable> = [];
 
   reportNameInput: string;
-  queryTfInput: string = "DECLARE @deadlineDate1 DATE\n" +
-    "DECLARE @deadlineDate2 DATE\n" +
-    "DECLARE @deadlineDate3 NUMBER\n" +
-    "DECLARE @deadlineDate4 \n" +
-    "DECLARE @deadlineDate5 DATE";
+  queryTfInput: string = 'DECLARE @deadlineDate1 DATE\n' +
+    'DECLARE @deadlineDate2 DATE\n' +
+    'DECLARE @deadlineDate3 NUMBER\n' +
+    'DECLARE @deadlineDate4 \n' +
+    'DECLARE @deadlineDate5 DATE';
 
   ngOnInit() {
   }
@@ -30,12 +32,21 @@ export class QueryBuilderComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
   }
 
+
+
   saveButtonClick(){
-    const one_line_input = this.queryTfInput.replace(/(\r\n|\n|\r)/gm," ");
+    const one_line_input = this.queryTfInput.replace(/(\r\n|\n|\r)/gm, ' ');
     this.readVariablesFromSQLText(one_line_input);
     const new_report = new Report(0, this.reportNameInput, one_line_input, this.found_vars);
-    this.ajax.post('url zur api', new_report).subscribe()
-    console.log(new_report);
+    this.ajax.post('url zur api', new_report).subscribe();
+    this.openDialog();
+      console.log(new_report);
+
+  }
+  openDialog() {
+        const dialogRef = this.dialog.open(DialogVariablesComponent);
+
+        dialogRef.afterClosed().subscribe();
   }
 
   readVariablesFromSQLText(one_line_input: string){
@@ -44,16 +55,16 @@ export class QueryBuilderComponent implements OnInit, AfterViewInit {
     const words_array = one_line_input.split(' ');
 
     //Durch die einzelnen Wörter durchgehen, bis DECLARE gefunden wurde
-    for(let i = 0; i < words_array.length; i++){
+    for (let i = 0; i < words_array.length; i++){
 
-      if(words_array[i].trim() === "DECLARE"){
+      if (words_array[i].trim() === 'DECLARE'){
         //Nach DECLARE steht ein Name mit @ am Anfang
-        if(words_array[i+1].trim().charAt(0) === "@"){
+        if (words_array[i + 1].trim().charAt(0) === '@'){
           //Werte aus Text auslesen und in neuem Variablen-Objekt speichern
-          let v = new Variable(i, words_array[i+1].trim(), variableType[words_array[i+2].trim()]);
+          const v = new Variable(i, words_array[i + 1].trim(), variableType[words_array[i + 2].trim()]);
           this.found_vars.push(v);
           //Überspringt den Name und Typ, da kein DECLARE
-          i = i +2;
+          i = i + 2;
         }
       }
     }
@@ -61,3 +72,5 @@ export class QueryBuilderComponent implements OnInit, AfterViewInit {
   }
 
 }
+
+

@@ -1,6 +1,6 @@
 <div class="dynamic-input-container">
   <mat-form-field *ngIf="!showDatepicker">
-    <input matInput placeholder="{{variable.name}}" type="{{variable?.type}}">
+    <input matInput placeholder="{{variable.name}}" type="{{variable?.type}}" type="{{variableType}}">
   </mat-form-field>
   <mat-form-field *ngIf="showDatepicker">
     <input matInput placeholder="{{variable.name}}" [matDatepicker]="datepicker">

@@ -5,8 +5,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import {EmailValidator, FormsModule} from '@angular/forms';
 import { RouterConfig } from './shared/routing/router-config.component';
+import { ApolloModule, Apollo } from 'apollo-angular';
+import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
+import{ InMemoryCache } from 'apollo-cache-inmemory';
 
 // Angular Material Imports
 
@@ -34,6 +37,9 @@ import { QueryPageComponent } from './query-page/query-page.component';
 import { QueryEditorComponent } from './query-editor/query-editor.component';
 import { DynamicInputComponent } from './dynamic-input/dynamic-input.component';
 import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
+import { MailDirective } from './mail.directive';
+import { DialogVariablesComponent } from './dialog-variables/dialog-variables.component';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +52,9 @@ import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
     QueryLoaderComponent,
     QueryPageComponent,
     QueryEditorComponent,
-    DynamicInputComponent
+    DynamicInputComponent,
+    MailDirective,
+    DialogVariablesComponent
   ],
   imports: [
     BrowserModule,
@@ -64,11 +72,14 @@ import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
     MatButtonModule,
     FormsModule,
     HttpClientModule,
-    HighlightJsModule
+    HighlightJsModule,
+    HttpClientModule,
+    ApolloModule,
+    HttpLinkModule
   ],
   providers: [
     HighlightJsService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
