@@ -240,7 +240,13 @@ export class QueryLoaderComponent implements OnInit {
 
 
     reportRequest(){
-
+        const resultQuery = gql`
+        query this.selectedReport {
+                "appearsIn" : [
+                
+                ]
+        }   
+    `;
     }
 
     exportExcel(){

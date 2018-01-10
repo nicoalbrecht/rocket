@@ -1,22 +1,20 @@
 <h1 mat-dialog-title> Verbesserung Eingabe </h1>
 <div mat-dialog-content>
-  <p>Für eine Überprüfung der Eingabefelder der Reports werden weitere Informationen benötigt. Bitte tragen sie die Arten der jeweiligen Eingaben ein. Die nachfolgende Liste zeigen die möglichen Typen an.</p>
-  <h2>Die Eingabe ist ein/eine ...</h2>
-    <ul type="circle">
-      <li>Nummer. Bitte tragen sie "number" ein </li>
-      <li>Wort/Text. Bitte tragen sie "text" ein </li>
-      <li>Datum. Bitte tragen sie "date" ein </li>
-      <li>Zeitangabe.Bitte tragen sie "time" ein </li>
-      <li>Webseite. Bitte tragen sie "url" ein </li>
-      <li>gewisser Zahlenraum. Bitte tragen sie "range" ein </li>
-    </ul>
+  <p>Für eine Überprüfung der Eingabefelder der Reports werden weitere Informationen benötigt. Bitte tragen sie die Arten der jeweiligen Eingaben ein. </p>
 
     <h2> Variablen des erstellten Reports </h2>
     <ul type="circle">
       <li *ngFor="let variable of this.inputData"> {{variable.name}} besitzt den Typen
-         <mat-form-field>
-            <input matInput tabindex="1" [(ngModel)]="variable.type">
-         </mat-form-field>
+        <mat-form-field>
+          <mat-select [(value)]="variable.type">
+            <mat-option value="number">number</mat-option>
+            <mat-option value="text">text</mat-option>
+            <mat-option value="date">date</mat-option>
+            <mat-option value="time">time</mat-option>
+            <mat-option value="url">url</mat-option>
+            <mat-option value="range">range</mat-option>
+          </mat-select>
+        </mat-form-field>
       </li>
     </ul>
 </div>
