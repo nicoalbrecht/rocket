@@ -26,11 +26,20 @@
 <div>
   <button mat-button (click)="reportRequest">Report abschicken</button>
   <div *ngIf="this.reportResult !==undefinded">
+    <mat-table>
+      <ng-container *ngFor="let column of this.array">
+        <mat-header-cell *ngIf="array[0]"></mat-header-cell>
+        <mat-cell></mat-cell>
+      </ng-container>
+    </mat-table>
+
+
     <mat-label *ngFor="let column of this.array[0]" color="accent"></mat-label>
   </div>
   <mat-label *ngFor="let rownumber of this.array"
              *ngFor="let row of this.array"></mat-label>
 </div>
+
 <div>
   <button mat-button (click)="exportExcel">Exportieren in Excel</button>
 </div>
