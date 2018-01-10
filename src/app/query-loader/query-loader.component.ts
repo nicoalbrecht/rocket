@@ -239,6 +239,13 @@ export class QueryLoaderComponent implements OnInit {
 
 
 
+    reportRequest(){
+
+    }
+
+    exportExcel(){
+
+    }
 
     ngOnInit(){
        /* this.apollo.watchQuery({
