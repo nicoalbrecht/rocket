@@ -23,6 +23,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from "@angular/material";
+import {MatTableModule} from "@angular/material";
+import {CdkTableModule} from '@angular/cdk/table';
 
 //Custom Imports
 
@@ -60,6 +62,7 @@ import { DialogVariablesComponent } from './dialog-variables/dialog-variables.co
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(RouterConfig),
+    CdkTableModule,
     MatMenuModule,
     MatToolbarModule,
     MatGridListModule,
@@ -70,6 +73,7 @@ import { DialogVariablesComponent } from './dialog-variables/dialog-variables.co
     MatNativeDateModule,
     MatSelectModule,
     MatButtonModule,
+    MatTableModule,
     FormsModule,
     HttpClientModule,
     HighlightJsModule,

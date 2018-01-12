@@ -234,23 +234,23 @@ export class QueryLoaderComponent implements OnInit {
             ]
         }
     ];
+
+    dummyresult = [['name','Start','Ende'],['Johann','3.10','6.11'],['Luisa','7.2','8.4']];
+
     selectedReport: Report;
     showCode: String = 'false';
 
-
+    reportResult: any [][];
 
     reportRequest(){
-        const resultQuery = gql`
-        query this.selectedReport {
-                "appearsIn" : [
-                
-                ]
-        }   
-    `;
+
+       this.reportResult = this.dummyresult;
+       console.log(this.reportResult);
     }
 
     exportExcel(){
-
+        //console.log(resultTable);
+        //XLSX.utils.table_to_sheet();
     }
 
     ngOnInit(){
